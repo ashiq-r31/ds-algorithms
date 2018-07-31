@@ -1,6 +1,44 @@
 # JS Data Structures & Algorithms
 
 ## Binary Search Trees
+```javascript
+function BinarySearchTree(value) {
+  this.value = value
+  this.left = null
+  this.right = null
+}
+
+BinarySearchTree.prototype.insert = function(value) {
+  if(value > this.value) {
+    if(this.right) this.right.insert(value)
+    else this.right = new BinarySearchTree(value)
+  }
+  if(value < this.value) {
+    if(this.left) this.left.insert(value)
+    else this.left = new BinarySearchTree(value)
+  }
+  return this
+}
+
+BinarySearchTree.prototype.contains = function(value) {
+  if(value === this.value) return true
+  if(value > this.value && !!this.right) {
+    this.right.contains(value)
+  }
+  if(value < this.value && !!this.left) {
+    this.left.contains(value)
+  }
+  return false
+}
+
+BinarySearchTree.prototype.inOrderTraversal = function(fn) {
+  if(!!this.left) this.left.inOrderTraversal()
+  fn(this.value)
+  if(!!this.right) this.right.inOrderTraversal()
+  return
+}
+  
+```
 
 ## Trees
 
