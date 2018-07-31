@@ -1,4 +1,19 @@
 # JS Data Structures & Algorithms
+## Trees
+```javascript
+function Tree(value) {
+  this.value = value
+  this.children = []
+  // unlike linked lists we don't need to keep track of head and tail of each node
+  // since its way too much metadata to track
+}
+
+Tree.prototype.addChild = function(value) {
+  const child = new Tree(value)
+  this.children.push(child)
+  return child // print instance, allows you to access the child's methods as well
+}
+```
 
 ## Binary Search Trees
 ```javascript
@@ -35,12 +50,10 @@ BinarySearchTree.prototype.inOrderTraversal = function(fn) {
   if(!!this.left) this.left.inOrderTraversal()
   fn(this.value)
   if(!!this.right) this.right.inOrderTraversal()
-  return
+  return undefined
 }
   
 ```
-
-## Trees
 
 ## Graphs
 Implemented with an adjacency list. Link to gist [here](https://gist.github.com/ashiq-r31/fb0d6774200d82d3523969d3e23743d5).
