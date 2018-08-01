@@ -16,6 +16,7 @@ Tree.prototype.addChild = function(value) {
 ```
 
 ## Binary Search Trees
+Link to gist [here](https://gist.github.com/ashiq-r31/1d772b482f94a319a75b6981697e3a69)
 ```javascript
 function BinarySearchTree(value) {
   this.value = value
