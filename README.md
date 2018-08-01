@@ -47,10 +47,22 @@ BinarySearchTree.prototype.contains = function(value) {
 }
 
 BinarySearchTree.prototype.inOrderTraversal = function(fn) {
-  if(!!this.left) this.left.inOrderTraversal()
+  if (!this.left && !this.right) return fn(this.value)
+  if(!!this.left) this.left.inOrderTraversal(fn)
   fn(this.value)
-  if(!!this.right) this.right.inOrderTraversal()
-  return undefined
+  if(!!this.right) this.right.inOrderTraversal(fn)
+}
+
+BinarySearchTree.prototype.preOrderTraversal = function(fn) {
+  fn(this.value)
+  if(!!this.left) this.left.preOrderTraversal(fn)
+  if(!!this.right) this.right.preOrderTraversal(fn)
+}
+
+BinarySearchTree.prototype.postOrderTraversal = function(fn) {
+  if(!!this.left) this.left.preOrderTraversal(fn)
+  if(!!this.right) this.right.preOrderTraversal(fn)
+  fn(this.value)
 }
   
 ```
