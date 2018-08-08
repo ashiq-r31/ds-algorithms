@@ -1,4 +1,38 @@
 # JS Data Structures & Algorithms
+## Sorting
+
+### Merge Sort
+```javascript
+
+const mergeSort = (arr) => {
+  if(arr.length === 1) return arr
+  const midpoint = parseInt(arr.length / 2)
+  const left = arr.slice(0, midpoint)
+  const right = arr.slice(midpoint)
+  return merge(
+    mergeSort(left),
+    mergeSort(right)
+  )
+}
+
+const merge = (left, right) => {
+  const result = []
+  const indexLeft = 0
+  const indexRight = 0
+  while(indexLeft < left.length && indexRight < right.length) {
+    if(left[indexLeft] < right[indexRight) {
+      result.push(left[indexLeft])
+      indexLeft++
+    } else {
+      result.push(right[indexRight])
+      indexRight++
+    }
+  }
+  return [...result, ...left.slice(indexLeft), ...right.slice(rightIndex)]
+}
+
+```
+
 ## Trees
 ```javascript
 function Tree(value) {
