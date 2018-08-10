@@ -163,3 +163,18 @@ Graph.prototype.traverseBreadthFirst = function(value, fn) {
   }
 }
 ```
+Resources for graphs
+- https://medium.freecodecamp.org/a-gentle-introduction-to-data-structures-how-graphs-work-a223d9ef8837
+
+## Hash Table
+Resources for hash table
+- https://medium.freecodecamp.org/how-to-implement-a-simple-hash-table-in-javascript-cb3b9c1f2997
+- 
+
+## Other resources
+- https://medium.freecodecamp.org/the-top-data-structures-you-should-know-for-your-next-coding-interview-36af0831f5e3
+- https://medium.freecodecamp.org/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b
+
+
+
+
