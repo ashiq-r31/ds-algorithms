@@ -81,11 +81,29 @@ BinarySearchTree.prototype.contains = function(value) {
   return false
 }
 
+// recursive
 BinarySearchTree.prototype.inOrderTraversal = function(fn) {
   if (!this.left && !this.right) return fn(this.value) // print leaf node at the bottom
   if(!!this.left) this.left.inOrderTraversal(fn)
   fn(this.value) // print parent node after all its left nodes returned 
   if(!!this.right) this.right.inOrderTraversal(fn)
+}
+
+// non recursive
+BinarySearchTree.prototype.inOrderTraversal = function(value, fn) {
+  let root = this
+  const stack = []
+  while(true) {
+    while(root !== null) {
+      stack.push(root)
+      root = root.left
+    }
+    if(stack.length === 0) return 
+
+    root = stack.pop()
+    fn(root.value)
+    root = root.right 
+  }
 }
 
 BinarySearchTree.prototype.preOrderTraversal = function(fn) {
