@@ -1,9 +1,48 @@
 # JS Data Structures & Algorithms
+
+## Fibonacci Sequence
+```javascript
+// iterative
+// time: O(n)
+const fib = (n) => {
+  if(n <= 1) return n
+  let a = 1, b = 0, temp
+  
+  while(n >= 1) {
+    temp = a
+    a = a + b
+    b = temp
+    n--
+  }
+  return b
+}
+
+// recursive 
+// time: 2^n
+const fib = n => {
+  if(n <= 1) return n
+  
+  return fib(n - 1) + fib(n - 2)
+}
+
+// memoized
+// time: O(n)
+const fib = (n, memo) => {
+  memo = memo || {}
+  
+  if (memo[n]) return memo[n]
+  
+  if(n <= 1) return n
+
+  return memo[n] = fib(n - 1, memo) + fib(n - 2, memo)
+}
+```
+
 ## Sorting
 
 ### Merge Sort
 ```javascript
-
+// time: O(n*logn)
 const mergeSort = (arr) => {
   if(arr.length === 1) return arr
   const midpoint = parseInt(arr.length / 2)
