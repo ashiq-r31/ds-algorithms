@@ -3,7 +3,7 @@
 ## Fibonacci Sequence
 ```javascript
 // iterative
-// time: O(n)
+// time: O(n), space: O(1)
 const fib = (n) => {
   if(n <= 1) return n
   let a = 1, b = 0, temp
@@ -18,7 +18,7 @@ const fib = (n) => {
 }
 
 // recursive 
-// time: 2^n
+// time: 0(2^n), space: 0(n)
 const fib = n => {
   if(n <= 1) return n
   
@@ -26,7 +26,7 @@ const fib = n => {
 }
 
 // memoized
-// time: O(n)
+// time: O(n), space: 0(n)
 const fib = (n, memo) => {
   memo = memo || {}
   
