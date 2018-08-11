@@ -38,9 +38,23 @@ const fib = (n, memo) => {
 }
 ```
 
-## Sorting
+## Arrays
+#### Maxium subarray of contiguous elements
+```javascript
+const maxSubArray = (nums) => {
+    let max_curr = max_global = nums[0]
+    for(let num of nums) {
+      // choose between num or sum with its previous elements
+      max_curr = Math.max(num, max_curr + num)
+      // choose between global and num or num and sum with its previous elements
+      max_global = Math.max(max_global, max_curr)
+    }
+    return max_global
+}
+```
+### Sorting
 
-### Merge Sort
+#### Merge Sort
 ```javascript
 // time: O(n*logn)
 const mergeSort = (arr) => {
