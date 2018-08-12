@@ -72,6 +72,18 @@ const maxSubArray = (nums) => {
   return max_global
 }
 ```
+
+#### Rotate left
+```javascript
+const rotateLeft = (nums, k) => {
+  if(nums.length <= 1 || k === 0) return nums
+  for(let i = 0; i < k; i++) {
+    let num = nums.shift()
+    nums.push(num)
+  }
+  return nums
+}
+```
 ### Sorting
 
 #### Merge Sort
