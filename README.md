@@ -52,7 +52,7 @@ const binarySearch = (arr, k) => {
     middle = Math.floor((left + right) / 2)
   
     if(arr[middle] == k) return middle
-    // update left or right boundaries 
+    // update left or right boundary
     else if(arr[middle] < k) left = middle + 1
     else right = middle - 1
   }
