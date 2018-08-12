@@ -140,7 +140,9 @@ LinkedList.prototype.print = function() {
     curr = curr.next
   }
 }
-
+```
+#### Find kth node from the tail 
+```javascript
 LinkedList.prototype.findKthNode = function(k) {
   if(this.head === null) return 'there is no head'
   
