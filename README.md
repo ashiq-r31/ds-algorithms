@@ -171,25 +171,16 @@ LinkedList.prototype.findKthNode = function(k) {
 ```javascript
 LinkedList.prototype.findMiddleNode = function() {
   if(this.head === null) return 'there is no head'
-  
-  let counter = 1
-  let first = this.head
 
-  while(first !== null) {
-    first = first.next
-    counter++
+  let fast = this.head
+  let slow = this.head
+
+  while(fast.next !== null && fast.next.next !== null) {
+    fast = fast.next.next
+    slow = slow.next
   }
 
-  counter = Math.round(counter / 2)
-  let sec = this.head
-  let counterTwo = 1
-
-  while(counterTwo < counter) {
-    sec = sec.next
-    counterTwo++
-  }
-
-  return sec
+  return slow
 }
 ```
 
