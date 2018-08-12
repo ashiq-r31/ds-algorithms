@@ -106,6 +106,66 @@ const merge = (left, right) => {
 
 ```
 
+## Linked List
+```javascript
+function Node(data, next) {
+  this.data = data
+  this.next = next || null
+}
+
+function LinkedList() {
+  this.head = null
+}
+
+LinkedList.prototype.addNode = function(data) {
+  this.head = new Node(data, this.head)
+  return this
+}
+
+LinkedList.prototype.addToTail = function(data) {
+  const node = new Node(data)
+  let curr = this.head
+  while(curr.next !== null) {
+    curr = curr.next
+  }
+  curr.next = node
+  return this
+}
+
+
+LinkedList.prototype.print = function() {
+  let curr = this.head
+  while(curr !== null) {
+    console.log(curr.data)
+    curr = curr.next
+  }
+}
+
+LinkedList.prototype.findKthNode = function(k) {
+  if(this.head === null) return 'there is no head'
+  
+  let first = this.head
+
+  while(k > 0) {
+    if(first !== null) {
+       first = first.next
+      k--
+    } else {
+      return 'k exceeds linked list size'
+    }
+  }
+
+  let sec = this.head
+
+  while(first !== null) {
+    first = first.next
+    sec = sec.next
+  }
+
+  return sec
+}
+```
+
 ## Trees
 ```javascript
 function Tree(value) {
