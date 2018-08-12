@@ -38,7 +38,7 @@ const fib = (n, memo) => {
 }
 ```
 
-## Arrays
+## Array
 
 #### Binary search
 ```javascript
