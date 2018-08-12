@@ -39,17 +39,37 @@ const fib = (n, memo) => {
 ```
 
 ## Arrays
+
+#### Binary search
+```javascript
+const binarySearch = (arr, k) => {
+  let left = 0,
+      right = arr.length - 1,
+      middle
+  
+  while(left <= right) {
+    // update middle
+    middle = Math.floor((left + right) / 2)
+  
+    if(arr[middle] == k) return middle
+    // update left or right boundaries 
+    else if(arr[middle] < k) left = middle + 1
+    else right = middle - 1
+  }
+  return -1
+}
+```
 #### Maxium subarray of contiguous elements
 ```javascript
 const maxSubArray = (nums) => {
-    let max_curr = max_global = nums[0]
-    for(let num of nums) {
-      // choose between num or sum with its previous elements
-      max_curr = Math.max(num, max_curr + num)
-      // choose between global and num or num and sum with its previous elements
-      max_global = Math.max(max_global, max_curr)
-    }
-    return max_global
+  let max_curr = max_global = nums[0]
+  for(let num of nums) {
+    // choose between num or sum with its previous elements
+    max_curr = Math.max(num, max_curr + num)
+    // choose between global and num or num and sum with its previous elements
+    max_global = Math.max(max_global, max_curr)
+  }
+  return max_global
 }
 ```
 ### Sorting
