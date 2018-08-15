@@ -282,7 +282,50 @@ BinarySearchTree.prototype.postOrderTraversal = function(fn) {
 }
   
 ```
+## Tries
+```javascript
+function Trie(key) {
+  this.key = key || ''
+  this.parent = null
+  this.children = {}
+  this.end = false
+}
 
+Trie.prototype.addWord = function(word) {
+  let curr = this
+  for(let i = 0; i < word.length; i++) {
+    curr.children[word[i]] = curr.children[word[i]] || new Trie(word[i])
+    if(i === word.length - 1) curr.children[word[i]].end = true
+    curr = curr.children[word[i]]
+  }
+  return this
+}
+
+Trie.prototype.findPrefix = function(prefix) {
+  let curr = this
+  for(let char of prefix) {
+    if(!curr.children[char]) return 'word does not exist'
+    curr = curr.children[char]
+  }
+
+  let output = []
+  return this.getAllWords(curr, prefix, output)
+}
+
+Trie.prototype.getAllWords = function(node, word, output) {
+  node = node || this
+  
+  if(node.end) { 
+    output.push(word) 
+  }
+
+  for(let char in node.children) {
+    this.getAllWords(node.children[char], word + node.children[char].key, output)
+  }
+
+  return output
+}
+```
 ## Graphs
 Implemented with an adjacency list. Link to gist [here](https://gist.github.com/ashiq-r31/fb0d6774200d82d3523969d3e23743d5).
 ```javascript
