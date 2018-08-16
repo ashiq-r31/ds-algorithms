@@ -118,6 +118,59 @@ const merge = (left, right) => {
 
 ```
 
+## Stack
+```javascript
+function Stack() {
+  this.count = 0
+  this.storage = {}
+}
+
+Stack.prototype.push = function(value) {
+  this.count++
+  this.storage[this.count] = value
+  return this.storage[this.count]
+}
+
+Stack.prototype.pop = function() {
+  if(this.count === 0) return undefined
+  const removed = this.storage[this.count]
+  delete this.storage[this.count]
+  this.count--
+  return removed
+}
+
+Stack.prototype.peek = function() {
+  return this.storage[this.count]
+}
+```
+
+## Queue
+```javascript
+function Queue() {
+  this.storage = {}
+  this.count = 0
+  this.lowestCount = 0
+}
+
+Queue.prototype.enqueue = function(value) {
+  this.count++
+  this.storage[this.count] = value
+  return this.storage[this.count]
+}
+
+Queue.prototype.dequeue = function() {
+  if(this.count - this.lowestCount === 0) return undefined
+  const removed = this.storage[this.lowestCount]
+  delete this.storage[this.lowestCount]
+  this.lowestCount++
+  return removed
+}
+
+Queue.prototype.peek = function() {
+  return this.storage[this.count - this.lowestCount]
+}
+```
+
 ## Linked List
 ```javascript
 function Node(data, next) {
