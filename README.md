@@ -249,6 +249,39 @@ LinkedList.prototype.findMiddleNode = function() {
 }
 ```
 
+## Hash Table
+```javascript
+function HashTable() {
+  this.list = []
+}
+
+HashTable.prototype.get = function(x) {
+  let index = hash(x),
+      result
+  
+  if(!this.list[index]) return undefined
+
+  this.list[index].forEach(pair => {
+    if(pair[0] === x) {
+      result = pair[1]
+    }
+  })
+
+  return result
+}
+
+HashTable.prototype.set = function(x, y) {
+  const index = hash(x)
+  this.list[index] = [x, y]
+  return this.list[index]
+}
+
+// simple hashing function with guaranteed collisions
+function hash(x) {
+  return x.split('').map(char=>char.charCodeAt(0)).join('000')
+}
+```
+
 ## Trees
 ```javascript
 function Tree(value) {
