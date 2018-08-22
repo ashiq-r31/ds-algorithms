@@ -44,25 +44,26 @@ const fib = (n, memo) => {
 const addOne = (A) => {
   // remove zeroes at the front
   let k = 0
-  while(A[k] === 0 && A.length > 1) k++
+  while(arr[k] === 0 && arr.length > 1) k++
 
   let enqueueOne = false
+  
   // iterate backwards and check if number is 9 or less
-  for(i = A.length - 1; i > -1; i--) {
-    if(A[i] < 9) {
+  for(i = arr.length - 1; i > -1; i--) {
+    if(arr[i] < 9) {
       // if first check is less than 9, then increment by 1 and return
-      A[i] += 1
-      return A.slice(k)
+      arr[i] += 1
+      return arr.slice(k)
     } else {
       // keep setting index to 0 until you find number less than 9
-      A[i] = 0
+      arr[i] = 0
       // make add 1 to front true if you never reach return earlier
       enqueueOne = true
     }
   }
-
-  if(enqueueOne) A.unshift(1)
-  return A.slice(k)
+  
+  if(enqueueOne) arr.unshift(1)
+  return arr.slice(k)
 }
 ```
 
