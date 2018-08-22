@@ -252,6 +252,12 @@ LinkedList.prototype.findMiddleNode = function() {
 
 ### Doubly Linked List
 ```javascript
+function Node(data) {
+  this.data = data
+  this.next = null
+  this.prev = null
+}
+
 DoublyLinkedList.prototype.addNode = function(data) {
  const head = new Node(data)
  if(!this.head) {
@@ -272,6 +278,33 @@ DoublyLinkedList.prototype.addToTail = function(data) {
   }
   tail.prev = curr
   curr.next = tail
+  return this
+}
+```
+
+### Circular Linked List
+```javascript
+function Node(data) {
+  this.data = data
+  this.next = null
+}
+
+function CircularLinkedList() {
+  this.head = null
+  this.tail = null
+}
+
+CircularLinkedList.prototype.addNode = function(data) {
+  const head = new Node(data)
+  if(!this.head) {
+    this.head = head
+    this.tail = this.head
+    this.tail.next = this.head
+    return this
+  }
+  head.next = this.head 
+  this.head = head
+  this.tail.next = this.head
   return this
 }
 ```
