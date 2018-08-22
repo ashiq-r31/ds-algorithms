@@ -39,6 +39,32 @@ const fib = (n, memo) => {
 ```
 
 ## Array
+#### Add One: given [1, 2, 3] or [0, 1, 2, 3] => [1, 2, 4]. Because 123 + 1 = 124
+```javascript
+const addOne = (A) => {
+  // remove zeroes at the front
+  let k = 0
+  while(A[k] === 0 && A.length > 1) k++
+
+  let enqueueOne = false
+  // iterate backwards and check if number is 9 or less
+  for(i = A.length - 1; i > -1; i--) {
+    if(A[i] < 9) {
+      // if first check is less than 9, then increment by 1 and return
+      A[i] += 1
+      return A.slice(k)
+    } else {
+      // keep setting index to 0 until you find number less than 9
+      A[i] = 0
+      // make add 1 to front true if you never reach return earlier
+      enqueueOne = true
+    }
+  }
+
+  if(enqueueOne) A.unshift(1)
+  return A.slice(k)
+}
+```
 
 #### Binary search
 ```javascript
