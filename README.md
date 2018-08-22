@@ -183,17 +183,19 @@ function LinkedList() {
 }
 
 LinkedList.prototype.addNode = function(data) {
-  this.head = new Node(data, this.head)
+  const head = new Node(data)
+  head.next = this.head
+  this.head = head
   return this
 }
 
 LinkedList.prototype.addToTail = function(data) {
-  const node = new Node(data)
+  const tail = new Node(data)
   let curr = this.head
   while(curr.next !== null) {
     curr = curr.next
   }
-  curr.next = node
+  curr.next = tail
   return this
 }
 
