@@ -197,7 +197,6 @@ LinkedList.prototype.addToTail = function(data) {
   return this
 }
 
-
 LinkedList.prototype.print = function() {
   let curr = this.head
   while(curr !== null) {
@@ -246,6 +245,32 @@ LinkedList.prototype.findMiddleNode = function() {
   }
 
   return slow
+}
+```
+
+### Doubly Linked List
+```javascript
+DoublyLinkedList.prototype.addNode = function(data) {
+ const head = new Node(data)
+ if(!this.head) {
+   this.head = head
+   return this
+ }
+ head.next = this.head
+ head.next.prev = head
+ this.head = head
+ return this
+}
+
+DoublyLinkedList.prototype.addToTail = function(data) {
+  const tail = new Node(data)
+  let curr = this.head
+  while(curr.next !== null) {
+    curr = curr.next
+  }
+  tail.prev = curr
+  curr.next = tail
+  return this
 }
 ```
 
