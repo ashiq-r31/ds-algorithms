@@ -41,7 +41,7 @@ const fib = (n, memo) => {
 ## Array
 #### Add One: given [1, 2, 3] or [0, 1, 2, 3] => [1, 2, 4]. Because 123 + 1 = 124
 ```javascript
-const addOne = (A) => {
+const addOne = (arr) => {
   // remove zeroes at the front
   let k = 0
   while(arr[k] === 0 && arr.length > 1) k++
