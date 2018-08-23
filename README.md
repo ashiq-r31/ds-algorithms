@@ -260,6 +260,33 @@ LinkedList.prototype.findKthNode = function(k) {
   return sec
 }
 ```
+#### Remove kth node from tail
+```javascript
+LinkedList.prototype.removeKthNode = function(k) {
+  let first = this.head
+  let sec = this.head
+  
+  while(k > 0) {
+    if(first.next) {
+      first = first.next
+      k--
+    } else {
+      // if k exceeds list size, remove head
+      this.head = this.head.next
+      return this.head
+    }
+  }
+
+  while(first.next && k === 0) {
+    first = first.next
+    sec = sec.next
+  }
+  // remove nth node
+  sec.next = sec.next.next
+  return this.head
+}
+
+```
 #### Find the middle node 
 ```javascript
 LinkedList.prototype.findMiddleNode = function() {
