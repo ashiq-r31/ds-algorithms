@@ -303,6 +303,35 @@ LinkedList.prototype.findMiddleNode = function() {
   return slow
 }
 ```
+#### Rotate list
+```javascript
+LinkedList.prototype.rotate = function(k) {
+  let first = this.head
+  let sec = this.head
+
+  while(k > 0) {
+    if(first.next) {
+      first = first.next
+    } else {
+      first = this.head
+    }
+    k--
+  }
+
+  if(!first) return this.head
+
+  while(first.next) {
+    first = first.next
+    sec = sec.next
+  }
+
+  first.next = this.head
+  this.head = sec.next
+  sec.next = null
+
+  return this.head
+}
+```
 
 ### Doubly Linked List
 ```javascript
