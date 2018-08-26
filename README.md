@@ -615,6 +615,29 @@ Graph.prototype.traverseBreadthFirst = function(vertex, fn) {
     })
   }
 }
+
+Graph.prototype.pathExists = function(vertex1, vertex2, visited) {
+  if(this.nodes[vertex1].length === 0) return
+
+  visited = visited || {}
+  visited[vertex1] = true
+
+  this.nodes[vertex1].forEach(function(neighbor) {
+    if(!!visited[vertex2]) return
+
+    if(!visited[neighbor] && neighbor === vertex2) {
+      visited[neighbor] = true
+      return
+    }
+
+    if(!visited[neighbor] && neighbor !== vertex2) {
+      visited[neighbor] = true
+      this.pathExists(neighbor, vertex2, visited)
+    } 
+  }, this)
+
+  return !!visited[vertex2]
+}
 ```
 Resources for graphs
 - https://medium.freecodecamp.org/a-gentle-introduction-to-data-structures-how-graphs-work-a223d9ef8837
