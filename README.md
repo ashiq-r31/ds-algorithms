@@ -569,21 +569,21 @@ Graph.prototype.addVertex = function(value) {
 }
 
 Graph.prototype.addEdge = function(vertex1, vertex2) {
-  if(!this.nodes[value1] || !this.nodes[value2]) return 'invalid node'
+  if(!this.nodes[vertex1] || !this.nodes[vertex2]) return 'invalid node'
   // bi-directional edge for vertices
-  this.nodes[value1].push(value2)
-  this.nodes[value2].push(value1)
+  this.nodes[vertex1].push(vertex2)
+  this.nodes[vertex2].push(vertex1)
 }
 
-Graph.prototype.traverseDepthFirst = function(value, fn, visited) {
+Graph.prototype.traverseDepthFirst = function(vertex, fn, visited) {
   if(!this.nodes[vertex] === undefined || typeof fn !== 'function') return 'invalid node or function'
   // initialze visited vertices lookup object
   visited = visited || {}
   // set current vertex as visited
-  visited[value] = true
-  fn(value)
+  visited[vertex] = true
+  fn(vertex)
   // iterate over neighbors of the current vertex
-  this.nodes[value].forEach(function(neighbor) {
+  this.nodes[vertex].forEach(function(neighbor) {
     if(!visited[neighbor]) {
       // recursively call self to traverse each neighbor's edges
       this.traverseDepthFirst(neighbor, fn, visited)
@@ -593,12 +593,12 @@ Graph.prototype.traverseDepthFirst = function(value, fn, visited) {
   }, this)
 }
 
-Graph.prototype.traverseBreadthFirst = function(value, fn) {
+Graph.prototype.traverseBreadthFirst = function(vertex, fn) {
   if(!this.nodes[vertex] === undefined || typeof fn !== 'function') return 'invalid node or function'
   // initialze visited vertices lookup object
   let visited = {}
   // initialize queue
-  let queue = [value]
+  let queue = [vertex]
   
   while(queue.length) {
     // take first vertex from queue
