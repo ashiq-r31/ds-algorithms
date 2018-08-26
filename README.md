@@ -1,6 +1,31 @@
 # JS Data Structures & Algorithms
 
-## Fibonacci Sequence
+### Table of contents
+- Fibonacci sequence
+- Arrays
+  - Add one
+  - Binary search
+  - Max sub array (Kadane's algorithm)
+  - Rotate left
+- Sorting
+  - Quick sort (coming soon)
+  - Merge sort
+- Stack
+- Queue
+- Linked list
+  - Find kth node from tail
+  - Remove kth node from tail
+  - Find middle node
+  - Rotate list
+- Doubly linked list
+- Circular linked list
+- Hash table
+- Trees
+- Binary Search Trees
+- Tries
+- Graphs
+
+## Fibonacci sequence
 ```javascript
 // iterative
 // time: O(n), space: O(1)
@@ -639,13 +664,6 @@ Graph.prototype.pathExists = function(vertex1, vertex2, visited) {
   return !!visited[vertex2]
 }
 ```
-Resources for graphs
-- https://medium.freecodecamp.org/a-gentle-introduction-to-data-structures-how-graphs-work-a223d9ef8837
-
-## Hash Table
-Resources for hash table
-- https://medium.freecodecamp.org/how-to-implement-a-simple-hash-table-in-javascript-cb3b9c1f2997
-- 
 
 ## Other resources
 - https://medium.freecodecamp.org/the-top-data-structures-you-should-know-for-your-next-coding-interview-36af0831f5e3
