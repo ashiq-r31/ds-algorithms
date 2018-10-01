@@ -665,12 +665,6 @@ Graph.prototype.pathExists = function(vertex1, vertex2, visited) {
 }
 ```
 
-## Other resources
-- https://medium.freecodecamp.org/the-top-data-structures-you-should-know-for-your-next-coding-interview-36af0831f5e3
-- https://medium.freecodecamp.org/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b
-- https://medium.com/developers-writing/fibonacci-sequence-algorithm-in-javascript-b253dc7e320e
-
-
 
 
 
