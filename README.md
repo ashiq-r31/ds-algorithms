@@ -488,14 +488,14 @@ BinarySearchTree.prototype.insert = function(value) {
 }
 
 BinarySearchTree.prototype.contains = function(value) {
-  if(value === this.value) return true
-  if(value > this.value && !!this.right) {
-    this.right.contains(value)
+  let found = false
+  let bst = this
+  while(!found && bst) {
+    if(bst.value === value) found = true
+    else if(bst.value > value) bst = bst.left
+    else if(bst.value < value) bst = bst.right
   }
-  if(value < this.value && !!this.left) {
-    this.left.contains(value)
-  }
-  return false
+  return found
 }
 
 // recursive
